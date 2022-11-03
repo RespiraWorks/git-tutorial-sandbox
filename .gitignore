@@ -1,0 +1,62 @@
+#network protocol output files
+software/common/generated_libs/protocols/*.c
+software/common/generated_libs/protocols/*.h
+software/gui/src/protocols/*.cc
+software/gui/src/protocols/*.h
+software/utils/debug/protocols/*
+
+build/
+build_autotests/
+.pio/
+install
+source/config/*
+*.app
+*.desktop
+*.user
+*.log
+!.gitignore
+
+#IDE
+software/controller/CMakeLists*
+software/controller/.gitignore
+software/common/CMakeLists*
+software/common/.gitignore
+cmake-build-*/
+.idea/
+.idea
+.vscode/
+.ctags
+ctags
+tags
+.cscope.out
+cscope.out
+*~
+
+#CAD/Inventor
+*.lck
+OldVersions/
+
+.DS_Store
+.clangd/
+.*.swp
+*.map
+__pycache__/
+last_graph.dat
+.pytype/
+
+coverage_reports
+
+# KiCAD backups
+*.sch-bak
+*.kicad_pcb-bak
+*.bak
+# KiCAD temp/unneeded cache files
+_autosave-*
+*.000
+fp-info-cache
+# (project symbol cache library not needed as all symbols kept in RespiraWorks libraries)
+*-cache.lib
+
+#performance test data
+local_data/
+test_data/
