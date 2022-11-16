@@ -84,8 +84,8 @@ install_linux() {
 
 build_all() {
   source ${HOME}/.profile
-  ./wiring/make_wiring.sh
-  ./purchasing/make_parts.sh
+#  ./wiring/make_wiring.sh
+#  ./purchasing/make_parts.sh
   make html
 }
 
