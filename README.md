@@ -46,7 +46,7 @@ The thunder-shock; and of the Past mirage no more at all,
             No more the alien dream
             Pursuing, as we went,
             With glory’s cursèd gleam:
-Nor sin of Cæsar’s ruined line engulfed us, innocent.
+Nor sin of Caesar’s ruined line engulfed us, innocent.
 
             The vision great and dread
             Corroded; sole in view
