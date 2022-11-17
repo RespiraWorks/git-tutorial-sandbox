@@ -1,0 +1,47 @@
+version: 2.1
+
+jobs:
+  pre-commit-checks:
+    docker:
+      - image: cimg/python:3.10.4
+    environment:
+      GIT_LFS_SKIP_SMUDGE: 1
+    steps:
+      - checkout
+      - run:
+          name: Install pre-commit
+          command: |
+            pip install pre-commit
+      - run:
+          name: Run pre-commit hooks
+          command: |
+            merge_base=$(git merge-base -a HEAD origin/master)
+            changed_files=$(git diff --name-only $merge_base...HEAD)
+            echo "Changed files since branched from origin/master: " $changed_files
+            git reset --soft $merge_base
+            pre-commit run --show-diff-on-failure --files $changed_files
+
+  common-tests:
+    machine:
+      image: ubuntu-2004:current
+    environment:
+      GIT_LFS_SKIP_SMUDGE: 1
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            export FORCED_ROOT=1
+            ./software/common/common.sh install
+      - run:
+          name: Run tests & publish coverage
+          command: |
+            ./software/common/common.sh test --cov --no-checks
+            ./software/common/common.sh cov_upload
+
+workflows:
+  commit:
+    jobs:
+      - pre-commit-checks
+      - common-tests
+
